@@ -1,0 +1,29 @@
+﻿## Visual Studio ##
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code ##
+.vscode/
+.history/
+*.code-workspace
+
+## .NET Core ##
+project.lock.json
+project.fragment.lock.json
+artifacts/
+out/
+nupkg/
+
+## Banco de Dados e Logs ##
+*.log
+*.sqlite
+*.db
+
+## Configurações Sensíveis (IMPORTANTE) ##
+# Se você usar segredos em arquivos separados, ignore-os aqui
+# appsettings.Development.json
