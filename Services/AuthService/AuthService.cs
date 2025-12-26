@@ -1,4 +1,4 @@
-﻿using APIrest.Data;
+using APIrest.Data;
 using APIrest.DTOs;
 using APIrest.Models;
 using APIrest.Services.SenhaService;
@@ -90,22 +90,22 @@ namespace APIrest.Services.AuthService
                     return respostaService;
                 }
 
-                // Criar os dois tokens
+                
                 var token = _senhaInterface.CriarToken(usuario);
                 var refreshToken = _senhaInterface.GerarRefreshToken();
 
-                // Salvar o Refresh Token no utilizador
+                
                 usuario.RefreshToken = refreshToken;
-                usuario.TokenDataExpiracao = DateTime.UtcNow.AddDays(7); // Expira em 7 dias
+                usuario.TokenDataExpiracao = DateTime.UtcNow.AddDays(7); 
 
                 _context.Update(usuario);
                 await _context.SaveChangesAsync();
 
-                respostaService.Dados = token; // Aqui podes criar um DTO para retornar os dois, mas para manter o teu padrão 'string', podes concatenar ou usar o Header
-                respostaService.Menssagem = refreshToken; // Truque temporário: passamos o refresh na mensagem ou criamos um DTO
+                respostaService.Dados = token; 
+                respostaService.Menssagem = refreshToken; 
                 respostaService.Status = true;
             }
-            catch (Exception ex) { /* erro */ }
+            catch (Exception ex) {  }
             return respostaService;
         }
 
